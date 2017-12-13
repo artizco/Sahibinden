@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    defaultConfig {
+        applicationId "com.yasince.sahibinden"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.appVersionCode
+        versionName rootProject.ext.appVersionName
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true
+
+        dataBinding {
+            enabled = true
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_1_8
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            force rootProject.ext.androidTestLibraries.supportAnnotations
+            force rootProject.ext.libraries.androidSupport
+            force rootProject.ext.libraries.appCompat
+            force rootProject.ext.libraries.designSupport
+            force rootProject.ext.libraries.recyclerView
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.libraries.kotlin
+
+    //Android Support Libs
+    implementation rootProject.ext.libraries.appCompat
+    implementation rootProject.ext.libraries.recyclerView
+    implementation rootProject.ext.libraries.designSupport
+    implementation rootProject.ext.libraries.cardView
+    implementation rootProject.ext.libraries.constraintLayout
+
+    //Network
+    implementation rootProject.ext.libraries.retrofit
+    implementation rootProject.ext.libraries.retrofitGson
+    implementation rootProject.ext.libraries.picasso
+
+    //Utils
+    implementation rootProject.ext.libraries.logger
+    implementation rootProject.ext.libraries.gson
+
+    //Unit Test
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    testImplementation rootProject.ext.testLibraries.jUnit
+    testImplementation rootProject.ext.testLibraries.roboelectric
+    testImplementation rootProject.ext.testLibraries.mockito
+
+    //UI Test
+    androidTestImplementation rootProject.ext.androidTestLibraries.espressoCore
+    androidTestImplementation rootProject.ext.androidTestLibraries.espressoContrib
+    androidTestImplementation rootProject.ext.androidTestLibraries.testRunner
+    androidTestImplementation rootProject.ext.androidTestLibraries.mockito
+    androidTestImplementation rootProject.ext.androidTestLibraries.supportAnnotations
+}

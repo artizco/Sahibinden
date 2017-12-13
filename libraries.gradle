@@ -1,0 +1,56 @@
+ext {
+    minSdkVersion = 16
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = "26.0.2"
+
+    //Android
+    androidSupportVersion = "26.1.0"
+    kotlinVersion = "1.1.51"
+    gsonVersion = "2.8.2"
+    retrofitVersion = "2.3.0"
+    loggerVersion = "2.1.1"
+    picassoVersion = "2.5.2"
+    constraintLayoutVersion = "1.0.2"
+
+    //Testing
+    junitVersion = "4.12"
+    espressoVersion = "3.0.0"
+    mockitoVersion = "2.11.0"
+    roboelectricVersion = "3.4.2"
+    testRunnerVersion = "1.0.1"
+
+    appVersionCode = 1
+    appVersionName = "1.0"
+
+    libraries = [
+            kotlin          : "org.jetbrains.kotlin:kotlin-stdlib-jre7:${kotlinVersion}",
+            androidSupport  : "com.android.support:support-v4:${androidSupportVersion}",
+            appCompat       : "com.android.support:appcompat-v7:${androidSupportVersion}",
+            recyclerView    : "com.android.support:recyclerview-v7:${androidSupportVersion}",
+            designSupport   : "com.android.support:design:${androidSupportVersion}",
+            cardView        : "com.android.support:cardview-v7:${androidSupportVersion}",
+            constraintLayout: "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}",
+            gson            : "com.google.code.gson:gson:${gsonVersion}",
+            retrofit        : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitGson    : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            logger          : "com.orhanobut:logger:${loggerVersion}",
+            picasso         : "com.squareup.picasso:picasso:${picassoVersion}"
+    ]
+
+    testLibraries = [
+            jUnit       : "junit:junit:${junitVersion}",
+            roboelectric: "org.robolectric:robolectric:${roboelectricVersion}",
+            mockito     : "org.mockito:mockito-android:${mockitoVersion}",
+    ]
+
+    androidTestLibraries = [
+            espressoCore      : "com.android.support.test.espresso:espresso-core:${espressoVersion}",
+            espressoContrib   : "com.android.support.test.espresso:espresso-contrib:${espressoVersion}",
+            testRunner        : "com.android.support.test:runner:${testRunnerVersion}",
+            mockito           : "org.mockito:mockito-android:${mockitoVersion}",
+            supportAnnotations: "com.android.support:support-annotations:${androidSupportVersion}"
+    ]
+}
+
+

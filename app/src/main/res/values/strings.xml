@@ -1,0 +1,17 @@
+<resources>
+
+    <!-- Common-->
+    <string name="app_name">Sahibinden</string>
+    <string name="service_error">Beklenmedik bir hata oluştu</string>
+
+    <!-- Users-->
+    <string name="photos">Kullanıcılar</string>
+    <string name="no_photos_found">Foto bulunamadı</string>
+
+    <!-- Profile-->
+    <string name="profile">Profil</string>
+    <string name="address">Adres</string>
+    <string name="phone">Telefon</string>
+    <string name="invalid_photo_id">Geçersiz foto id</string>
+
+</resources>
